@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FZ Agency — Go live. Have fun. Get paid. | BIGO Live Broadcaster Agency</title>
+<meta name="description" content="FZ Agency (Shoppaholics Family) turns creators into paid BIGO Live hosts. Award-winning family, real earnings, red carpet energy. Apply to become a broadcaster today.">
+<meta property="og:title" content="FZ Agency — Go live. Have fun. Get paid.">
+<meta property="og:description" content="Become a paid BIGO Live host with an award-winning family. $1.6M+ generated, top hosts earn up to $64K/month.">
+<meta property="og:image" content="assets/img/hero-phone.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0413; --ink-2:#120720; --surface:#180a29; --surface-2:#20103a;
+    --red:#ff2d55; --magenta:#ff3fb4; --cyan:#22e0e6; --purple:#8a3ffc; --gold:#f5c451;
+    --text:#f5eefc; --muted:#b9a6d6; --faint:#7c6ba0;
+    --line:rgba(255,255,255,.10);
+    --display:'Unbounded',system-ui,sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',monospace;
+    --wrap:1180px; --radius:16px;
+    --grad:linear-gradient(100deg,var(--red),var(--magenta) 45%,var(--purple) 80%,var(--cyan));
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.02;letter-spacing:-.01em;margin:0}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--cyan)}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:700;font-size:16px;padding:14px 26px;border-radius:100px;border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 30px rgba(255,45,85,.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,63,180,.5)}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+  .wa{display:inline-flex;align-items:center;gap:.55em;font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .wa b{color:var(--gold);font-weight:700}
+
+  /* nav */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+  header.nav.solid{background:rgba(10,4,19,.82);backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;height:38px}
+  .logo svg{height:34px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.link{font-size:15px;font-weight:500;color:var(--muted);transition:color .2s}
+  .nav-links a.link:hover{color:var(--text)}
+  .nav-cta{padding:11px 22px;font-size:15px}
+  .burger{display:none;background:none;border:0;color:var(--text);cursor:pointer;padding:6px}
+  .burger svg{width:28px;height:28px}
+  .mobile-panel{display:none}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:118px 0 0;overflow:hidden}
+  .hero .wrap{width:100%;max-width:1320px}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:
+     radial-gradient(60% 55% at 78% 30%,rgba(138,63,252,.45),transparent 60%),
+     radial-gradient(50% 45% at 12% 78%,rgba(34,224,230,.28),transparent 60%),
+     radial-gradient(65% 60% at 85% 88%,rgba(255,45,85,.30),transparent 60%)}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:54px;align-items:center;width:100%}
+  .hero h1{font-size:clamp(44px,6.4vw,82px)}
+  .hero h1 .line2{display:block}
+  .neon{color:#fff;text-shadow:0 0 6px rgba(255,63,180,.9),0 0 22px rgba(255,63,180,.6),0 0 46px rgba(138,63,252,.55)}
+  .hero p.sub{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:42ch;margin:22px 0 30px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero-actions .wa{flex-basis:100%;margin-top:6px}
+  /* hero right composition: trophy (the proof) top-right + phone logo layered */
+  .hero-right{position:relative;min-height:64vh;display:flex;align-items:center;justify-content:flex-end}
+  .proof-card{position:relative;z-index:2;width:min(370px,88%);border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#0c0518;box-shadow:0 26px 80px rgba(0,0,0,.55)}
+  .proof-card img{width:100%;display:block;cursor:zoom-in}
+  .proof-card .pill{position:absolute;top:14px;left:14px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1a1206;background:var(--gold);padding:6px 12px;border-radius:100px}
+  .proof-card .cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(8,3,16,.92));font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--gold);text-align:center}
+  .hero-phone{position:absolute;z-index:1;left:-2%;bottom:-6%;width:min(216px,46%);height:auto;mix-blend-mode:screen;filter:drop-shadow(0 18px 46px rgba(255,45,85,.4));animation:float 6s ease-in-out infinite;pointer-events:none}
+  @keyframes float{50%{transform:translateY(-14px)}}
+
+  /* marquee */
+  .marquee{position:relative;z-index:3;margin-top:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);overflow:hidden;white-space:nowrap;padding:13px 0}
+  .marquee-track{display:inline-block;animation:slide 26s linear infinite;font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:13px}
+  .marquee-track span{padding:0 26px;color:var(--muted)}
+  .marquee-track span b{color:var(--gold)}
+  .marquee-track .dot{color:var(--red);padding:0}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  section{position:relative;padding:96px 0}
+  .sec-head{max-width:640px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(30px,4.4vw,52px);margin-top:14px}
+  .sec-head p{color:var(--muted);margin-top:16px;font-size:18px}
+
+  /* stats */
+  .stats{padding:64px 0;background:linear-gradient(180deg,transparent,rgba(138,63,252,.06),transparent)}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+  .stat .num{font-family:var(--mono);font-weight:700;font-size:clamp(30px,3.6vw,42px);line-height:1;letter-spacing:-.02em}
+  .stat:nth-child(1) .num{color:var(--cyan)} .stat:nth-child(2) .num{color:var(--gold)}
+  .stat:nth-child(3) .num{color:var(--magenta)} .stat:nth-child(4) .num{color:var(--purple)}
+  .stat .lbl{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.4}
+  .fineprint{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:20px;letter-spacing:.02em}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden}
+  .step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+  .step .no{font-family:var(--mono);font-size:13px;color:var(--cyan);letter-spacing:.2em}
+  .step h3{font-size:22px;margin:14px 0 10px}
+  .step p{color:var(--muted);font-size:15.5px;margin:0}
+  .orientation{margin-top:24px;display:flex;gap:18px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:24px 26px}
+  .orientation .tag{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding-top:3px}
+  .orientation p{margin:0;color:var(--muted);font-size:15.5px}
+  .orientation b{color:var(--text);font-weight:700}
+
+  /* perks */
+  .perks{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .perk{border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;background:linear-gradient(160deg,var(--surface),var(--ink-2));transition:transform .2s,border-color .2s}
+  .perk:hover{transform:translateY(-5px);border-color:var(--magenta)}
+  .perk .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,63,180,.14);margin-bottom:18px}
+  .perk .ic svg{width:24px;height:24px;stroke:var(--magenta)}
+  .perk h3{font-size:19px;margin-bottom:8px}
+  .perk p{color:var(--muted);font-size:15px;margin:0}
+
+  /* stories */
+  .stories{background:linear-gradient(180deg,transparent,rgba(255,45,85,.05),transparent)}
+  .brands{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+  .brand{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.6vw,30px);padding:14px 26px;border:1px solid var(--line);border-radius:100px;color:var(--text)}
+  .brand:nth-child(1){color:var(--gold)} .brand:nth-child(2){color:var(--cyan)}
+  .brand:nth-child(3){color:var(--magenta)} .brand:nth-child(4){color:var(--purple)}
+
+  /* family */
+  .family-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  .family-emblem{display:grid;place-items:center;background:radial-gradient(closest-side,rgba(245,196,81,.16),transparent 72%);border-radius:24px;padding:26px}
+  .family h2{font-size:clamp(28px,4vw,46px)}
+  .family .fam-name{font-family:var(--display);font-weight:900;background:linear-gradient(90deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .family p{color:var(--muted);margin:18px 0 0;font-size:17px}
+  .tagline-zip{font-family:var(--mono);color:var(--gold);letter-spacing:.06em;margin-top:20px !important;font-size:15px}
+
+  /* gallery */
+  .watch-label{font-family:var(--mono);text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--cyan);margin:0 0 16px}
+  .watch{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+  .watch figure{margin:0;position:relative;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:9/16}
+  .watch video{width:100%;height:100%;object-fit:cover;display:block}
+  .watch figure::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px var(--line);border-radius:16px;pointer-events:none}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px}
+  .gal figure{margin:0;border-radius:14px;overflow:hidden;position:relative;background:var(--surface)}
+  .gal img{width:100%;height:100%;object-fit:cover}
+  .gal .tall{grid-row:span 2}
+  .gal .wide{grid-column:span 2}
+  .gal figure::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px var(--line);border-radius:14px;pointer-events:none}
+
+  /* apply / form */
+  .apply{background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+  .apply-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .apply-copy h2{font-size:clamp(30px,4.4vw,52px)}
+  .apply-copy p{color:var(--muted);margin-top:18px;font-size:17px}
+  .apply-copy .wa{margin-top:26px;font-size:15px}
+  form.apply-form{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:34px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-bottom:7px;letter-spacing:.01em}
+  .field label .req{color:var(--red)}
+  .field input[type=text],.field input[type=email],.field select,.field textarea{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:13px 15px;color:var(--text);font-family:var(--body);font-size:15.5px;transition:border-color .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,224,230,.15)}
+  .field textarea{resize:vertical;min-height:88px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip label{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:100px;font-size:14px;color:var(--muted);cursor:pointer;margin:0;transition:all .18s;user-select:none}
+  .chip input:checked+label{background:rgba(34,224,230,.15);border-color:var(--cyan);color:var(--cyan)}
+  .chip input:focus-visible+label{box-shadow:0 0 0 3px rgba(34,224,230,.25)}
+  .agecheck{display:flex;gap:12px;align-items:flex-start;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:14px 15px;margin-bottom:20px}
+  .agecheck input{margin-top:3px;width:18px;height:18px;accent-color:var(--red);flex-shrink:0}
+  .agecheck label{font-size:14px;color:var(--muted);margin:0}
+  form.apply-form .btn-primary{width:100%;justify-content:center;font-size:17px;padding:16px}
+  .form-status{margin-top:16px;font-size:14.5px;text-align:center;min-height:20px}
+  .form-status.ok{color:var(--cyan)} .form-status.err{color:var(--red)}
+  .setup-note{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:14px;text-align:center;line-height:1.5}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--ink-2)}
+  .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot-grid .logo svg{height:30px}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+  .foot-links a:hover{color:var(--cyan)}
+  .copy{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:28px}
+  .copy .fam{color:var(--gold)}
+
+  /* app-apply steps */
+  .methods{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+  .method{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .method h3{font-size:20px;margin:0 0 6px}
+  .method .mtag{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+  .method ol{margin:16px 0 0;padding-left:20px;color:var(--muted)}
+  .method ol li{margin-bottom:8px;font-size:15.5px}
+  .method ol li b{color:var(--text);font-weight:700}
+  .appshots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+  .appshots figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;background:#0c0518}
+  .appshots img{width:100%;height:auto;display:block}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(6,2,12,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+  .lb-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,.1);border:0;color:#fff;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;display:grid;place-items:center}
+  .lb-close:hover{background:var(--red)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:0;color:#fff;width:52px;height:52px;border-radius:50%;font-size:26px;cursor:pointer;display:grid;place-items:center}
+  .lb-nav:hover{background:rgba(255,255,255,.22)}
+  .lb-prev{left:18px} .lb-next{right:18px}
+  .gal figure{cursor:zoom-in}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:30px}
+    .hero-right{min-height:auto;justify-content:center;margin-top:10px;padding-bottom:60px}
+    .proof-card{width:min(320px,82%)}
+    .hero-phone{width:150px;left:auto;right:-4%;bottom:-40px}
+    .hero p.sub{max-width:none}
+    .stat-grid{grid-template-columns:repeat(2,1fr)}
+    .steps,.perks{grid-template-columns:1fr}
+    .family-grid,.apply-grid{grid-template-columns:1fr;gap:32px}
+    .family-emblem{max-width:320px;margin:0 auto}
+    .gal{grid-template-columns:repeat(2,1fr)}
+    .watch{grid-template-columns:1fr 1fr}
+    .methods{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .burger{display:block}
+    .mobile-panel.open{display:block;position:fixed;inset:74px 0 auto 0;background:rgba(10,4,19,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:22px 24px 30px;z-index:49}
+    .mobile-panel a{display:block;padding:13px 0;font-size:18px;color:var(--text);border-bottom:1px solid var(--line)}
+    .mobile-panel .btn{margin-top:18px;width:100%;justify-content:center}
+  }
+  @media(max-width:520px){
+    .stat-grid{grid-template-columns:1fr}
+    .row2{grid-template-columns:1fr}
+    section{padding:70px 0}
+    .hero{padding:96px 0 40px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo" aria-label="FZ Agency home">
+      <svg viewBox="0 0 210 46" role="img" aria-label="FZ Agency">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ff2d55"/><stop offset=".55" stop-color="#ff3fb4"/><stop offset="1" stop-color="#f5c451"/>
+        </linearGradient></defs>
+        <text x="0" y="36" font-family="Unbounded,sans-serif" font-weight="900" font-size="38" fill="url(#lg)">FZ</text>
+        <text x="62" y="20" font-family="Space Mono,monospace" font-weight="700" font-size="15" letter-spacing="3" fill="#f5eefc">AGENCY</text>
+        <text x="62" y="38" font-family="Space Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#22e0e6">SHOPPAHOLICS FAMILY</text>
+      </svg>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="link" href="#how">How it works</a>
+      <a class="link" href="#perks">Perks</a>
+      <a class="link" href="#family">Family</a>
+      <a class="link" href="#gallery">Gallery</a>
+      <a class="btn btn-primary nav-cta" href="#apply">Apply now</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mpanel">
+    <a href="#how">How it works</a>
+    <a href="#perks">Perks</a>
+    <a href="#family">Family</a>
+    <a href="#gallery">Gallery</a>
+    <a class="btn btn-primary" href="#apply">Apply now</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">BIGO Live · Award-winning family since 2018</span>
+        <h1><span class="neon">Go live.</span><span class="line2">Have fun.</span><span class="line2 grad-text">Get paid.</span></h1>
+        <p class="sub">FZ Agency turns creators into paid BIGO Live hosts — bright lights, a real community, and a family that's been winning from day one.</p>
+        <div class="hero-actions">
+          <a href="#apply" class="btn btn-primary">Apply to become a host</a>
+          <a href="#how" class="btn btn-ghost">See how it works</a>
+          <span class="wa">or WhatsApp us at <b>+1&nbsp;(917)&nbsp;512-3583</b></span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="proof-card">
+          <span class="pill">The proof</span>
+          <img src="assets/img/host-2.jpg" alt="FZ Agency leadership holding BIGO Live award trophies outside the gala" data-full="assets/img/host-2.jpg">
+          <div class="cap">Award-winning family since 2018</div>
+        </div>
+        <img class="hero-phone" src="assets/img/hero-logo.jpg" alt="FZ Agency — go live, have fun, get paid" width="826" height="1600">
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mq">
+      <span>Go live</span><span class="dot">◆</span>
+      <span>Have fun</span><span class="dot">◆</span>
+      <span>Get paid</span><span class="dot">◆</span>
+      <span>Award-winning family since <b>2018</b></span><span class="dot">◆</span>
+      <span>Red carpet nights</span><span class="dot">◆</span>
+      <span>Agency getaways</span><span class="dot">◆</span>
+      <span>Real community</span><span class="dot">◆</span>
+      <span>Bright lights, big wins</span><span class="dot">◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" id="stats">
+  <div class="wrap reveal">
+    <div class="stat-grid">
+      <div class="stat"><div class="num">$1.6M+</div><div class="lbl">Revenue generated as one of BIGO's earliest families</div></div>
+      <div class="stat"><div class="num">$64K<span style="font-size:.5em">/mo</span></div><div class="lbl">Top-host earnings — driven by gifts, hours &amp; incentives*</div></div>
+      <div class="stat"><div class="num">3×</div><div class="lbl">BIGO Live Family Gala Awards (2020)</div></div>
+      <div class="stat"><div class="num">#1</div><div class="lbl">Diamond Division, BIGO Gala 2024</div></div>
+    </div>
+    <p class="fineprint">*Top-host figure. Individual earnings vary based on hours streamed, audience, gifts (Beans) and effort. You'll learn how it all works at orientation.</p>
+  </div>
+</section>
+
+<!-- ============ HOW / STEPS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Become a paid BIGO host</span>
+      <h2>Three steps to go live<br>with FZ Agency</h2>
+      <p>No experience needed — just energy and a willingness to show up. Here's how you get started.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="no">STEP 01</div>
+        <h3>Download BIGO Live</h3>
+        <p>Get the BIGO Live app on iOS or Android and set up your account. It's free.</p>
+      </div>
+      <div class="step">
+        <div class="no">STEP 02</div>
+        <h3>Create your profile</h3>
+        <p>Add your photo, a short bio, and your go-live basics so you're ready to shine on camera.</p>
+      </div>
+      <div class="step">
+        <div class="no">STEP 03</div>
+        <h3>Apply to FZ Agency</h3>
+        <p>Fill out the form below or message us on WhatsApp. We'll set you up with host status and get you started.</p>
+      </div>
+    </div>
+    <div class="orientation reveal">
+      <span class="tag">Then: orientation</span>
+      <p>Once you're in, we walk you through everything at orientation — how earnings actually work, from <b>gifts (Beans)</b> and <b>hours streamed</b> to <b>incentives</b> — plus real tips from hosts who've built their income here.</p>
+    </div>
+
+    <p class="watch-label reveal" style="margin:44px 0 0">Two ways to apply — pick whatever's easier</p>
+    <div class="methods reveal">
+      <div class="method">
+        <span class="mtag">Option A · Through us</span>
+        <h3>Apply on this site</h3>
+        <ol>
+          <li>Download <b>BIGO Live</b> and create your profile.</li>
+          <li>Fill out the <b>application form</b> below — or WhatsApp us at <b>+1 (917) 512-3583</b>.</li>
+          <li>We'll reach out and set up your host status.</li>
+        </ol>
+      </div>
+      <div class="method">
+        <span class="mtag">Option B · In the app</span>
+        <h3>Apply directly in BIGO Live</h3>
+        <ol>
+          <li>Tap <b>Me</b> in the bottom-right corner.</li>
+          <li>Open <b>Creator Center</b>.</li>
+          <li>Tap <b>Become a Broadcaster</b>.</li>
+          <li>Tap the <b>magnifying glass</b>, search <b>FashZip</b>, then tap <b>Apply</b>.</li>
+        </ol>
+        <div class="appshots">
+          <figure><img src="assets/img/app-step-1.jpg" alt="BIGO Live app: open Me and Creator Center" data-full="assets/img/app-step-1.jpg" loading="lazy"></figure>
+          <figure><img src="assets/img/app-step-2.jpg" alt="BIGO Live app: Become a Broadcaster" data-full="assets/img/app-step-2.jpg" loading="lazy"></figure>
+          <figure><img src="assets/img/app-step-3.jpg" alt="BIGO Live app: tap the search icon" data-full="assets/img/app-step-3.jpg" loading="lazy"></figure>
+          <figure><img src="assets/img/app-step-4.jpg" alt="BIGO Live app: search FashZip and Apply" data-full="assets/img/app-step-4.jpg" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERKS ============ -->
+<section id="perks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">More than a paycheck</span>
+      <h2>Perks of the family</h2>
+      <p>We're a family, not a faceless network. Here's what life inside FZ Agency looks like.</p>
+    </div>
+    <div class="perks reveal">
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg></div>
+        <h3>Agency getaways</h3>
+        <p>Trips and getaways with the family — because the people you win with matter.</p>
+      </div>
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9H21l-5.3 4 2 6.9L12 16l-5.7 3.8 2-6.9L3 8.9h6.6z"/></svg></div>
+        <h3>Red carpet events</h3>
+        <p>Show up and show out — we walk red carpets and hit events together as a team.</p>
+      </div>
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></div>
+        <h3>Orientation &amp; mentorship</h3>
+        <p>Learn the earning system and get coaching from hosts who've already done it.</p>
+      </div>
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg></div>
+        <h3>Award-winning culture</h3>
+        <p>Join a Gala-winning, #1 Diamond Division family with a track record on BIGO Live.</p>
+      </div>
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Real earning potential</h3>
+        <p>Turn hours on camera into income — gifts, incentives and bonuses all stack up.</p>
+      </div>
+      <div class="perk">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2H7a2 2 0 00-2 2v16l7-3 7 3V4a2 2 0 00-2-2z"/></svg></div>
+        <h3>A real community</h3>
+        <p>Support, group chats and family energy — you're never going live alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section class="stories" id="stories">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Where FZ talent goes</span>
+      <h2>From our lives to the big leagues</h2>
+      <p>Streaming with FZ has been a launchpad. Members of our family have gone on to work with Tyler Perry Studios and appear in features across major platforms.</p>
+    </div>
+    <div class="brands reveal">
+      <span class="brand">Tyler Perry Studios</span>
+      <span class="brand">Netflix</span>
+      <span class="brand">Tubi</span>
+      <span class="brand">Hulu</span>
+    </div>
+    <p class="fineprint reveal">Journeys vary — these reflect standout members of the FZ family.</p>
+  </div>
+</section>
+
+<!-- ============ FAMILY ============ -->
+<section class="family" id="family">
+  <div class="wrap">
+    <div class="family-grid">
+      <div class="family-emblem reveal">
+        <img src="assets/img/fashzip-bag.png" alt="FashZip — why ship when you can zip" width="600" height="600">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">📱 Shoppaholics 🛍 Family</span>
+        <h2>We started as <span class="fam-name">FashZip</span>.</h2>
+        <p>"Why ship when you can zip!" That was the hustle we built our name on — and we brought that same energy to BIGO Live.</p>
+        <p>Today we're <b style="color:var(--text)">FZ Agency</b>, home of the Shoppaholics family: one of BIGO Live's earliest award-winning agencies and families — including the <b style="color:var(--gold)">BIGO Live Agency Award (2022)</b> — still lighting up the app and pulling new creators up with us.</p>
+        <p class="tagline-zip">FashZip → FZ Agency · same family, brighter lights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The FZ life</span>
+      <h2>Lights, camera, family</h2>
+      <p>A look at our hosts, our events, and the energy you're joining.</p>
+    </div>
+    <p class="watch-label reveal">▶ Watch us live</p>
+    <div class="watch reveal">
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-poster.jpg" playsinline>
+          <source src="assets/video/showcase.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-2-poster.jpg" playsinline>
+          <source src="assets/video/showcase-2.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-3-poster.jpg" playsinline>
+          <source src="assets/video/showcase-3.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-4-poster.jpg" playsinline>
+          <source src="assets/video/showcase-4.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-5-poster.jpg" playsinline>
+          <source src="assets/video/showcase-5.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure>
+        <video controls preload="metadata" poster="assets/img/showcase-6-poster.jpg" playsinline>
+          <source src="assets/video/showcase-6.mp4" type="video/mp4">
+        </video>
+      </figure>
+    </div>
+    <div class="gal reveal">
+      <figure class="tall"><img src="assets/img/host-1.jpg" alt="FZ Agency host" loading="lazy"></figure>
+      <figure><img src="assets/img/event-1.jpg" alt="FZ Agency event" loading="lazy"></figure>
+      <figure><img src="assets/img/gallery-1.jpg" alt="FZ Agency moment" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/stream-portrait.jpg" alt="FZ Agency streamer" loading="lazy"></figure>
+      <figure><img src="assets/img/host-3.jpg" alt="FZ Agency host" loading="lazy"></figure>
+      <figure><img src="assets/img/gallery-2.jpg" alt="FZ Agency moment" loading="lazy"></figure>
+      <figure><img src="assets/img/promo.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure class="wide"><img src="assets/img/host-2.jpg" alt="FZ Agency host" loading="lazy"></figure>
+      <figure><img src="assets/img/promo-2.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure><img src="assets/img/event-2.jpg" alt="FZ Agency event" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/host-4.jpg" alt="FZ Agency host" loading="lazy"></figure>
+      <figure><img src="assets/img/gallery-3.jpg" alt="FZ Agency moment" loading="lazy"></figure>
+      <figure><img src="assets/img/promo-3.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure class="wide"><img src="assets/img/promo-4.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure><img src="assets/img/gallery-4.jpg" alt="FZ Agency moment" loading="lazy"></figure>
+      <figure class="tall"><img src="assets/img/promo-5.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure><img src="assets/img/promo-7.jpg" alt="FZ Agency moment" loading="lazy"></figure>
+      <figure><img src="assets/img/promo-6.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+      <figure class="wide"><img src="assets/img/promo-8.jpg" alt="FZ Agency promo" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY ============ -->
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="apply-grid">
+      <div class="apply-copy reveal">
+        <span class="eyebrow">Your turn</span>
+        <h2>Apply to become a paid BIGO host</h2>
+        <p>Already downloaded BIGO Live and set up your profile? Drop your details below and we'll reach out to get your host status set up.</p>
+        <p>Tell us where you've streamed before — it helps us get you started faster.</p>
+        <span class="wa">Prefer to chat? WhatsApp us at <b>+1&nbsp;(917)&nbsp;512-3583</b></span>
+      </div>
+
+      <!-- SETUP: replace YOUR_FORM_ID with your Formspree form ID (see README) -->
+      <form class="apply-form" id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">Full name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp / phone <span class="req">*</span></label>
+            <input type="text" id="whatsapp" name="whatsapp" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="bigoid">Bigo ID <span class="req">*</span></label>
+            <input type="text" id="bigoid" name="bigo_id" required placeholder="Your BIGO Live ID">
+          </div>
+          <div class="field">
+            <label for="country">Country / region <span class="req">*</span></label>
+            <input type="text" id="country" name="country" required autocomplete="country-name">
+          </div>
+        </div>
+        <div class="field">
+          <label>Platforms you've used before</label>
+          <div class="chips">
+            <span class="chip"><input type="checkbox" id="p1" name="platforms" value="TikTok"><label for="p1">TikTok</label></span>
+            <span class="chip"><input type="checkbox" id="p2" name="platforms" value="Uplive"><label for="p2">Uplive</label></span>
+            <span class="chip"><input type="checkbox" id="p3" name="platforms" value="Tagged"><label for="p3">Tagged</label></span>
+            <span class="chip"><input type="checkbox" id="p4" name="platforms" value="BIGO Live"><label for="p4">BIGO Live</label></span>
+            <span class="chip"><input type="checkbox" id="p5" name="platforms" value="Instagram Live"><label for="p5">Instagram Live</label></span>
+            <span class="chip"><input type="checkbox" id="p6" name="platforms" value="Other"><label for="p6">Other</label></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="experience">Experience &amp; hours available <span style="color:var(--faint)">(optional)</span></label>
+          <textarea id="experience" name="experience" placeholder="Tell us about your streaming experience and how many hours a week you can go live."></textarea>
+        </div>
+        <div class="agecheck">
+          <input type="checkbox" id="age" name="age_confirmed" value="Yes, 18+" required>
+          <label for="age">I confirm I am 18 years or older and agree to be contacted by FZ Agency about becoming a broadcaster. <span class="req">*</span></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send my application</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        <p class="setup-note">Owner setup: connect this form to Formspree (free) — see README.md before going live.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="#home" class="logo" aria-label="FZ Agency home">
+        <svg viewBox="0 0 210 46" role="img" aria-label="FZ Agency">
+          <defs><linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff2d55"/><stop offset=".55" stop-color="#ff3fb4"/><stop offset="1" stop-color="#f5c451"/>
+          </linearGradient></defs>
+          <text x="0" y="36" font-family="Unbounded,sans-serif" font-weight="900" font-size="38" fill="url(#lg2)">FZ</text>
+          <text x="62" y="20" font-family="Space Mono,monospace" font-weight="700" font-size="15" letter-spacing="3" fill="#f5eefc">AGENCY</text>
+          <text x="62" y="38" font-family="Space Mono,monospace" font-size="10.5" letter-spacing="1.5" fill="#22e0e6">SHOPPAHOLICS FAMILY</text>
+        </svg>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#how">How it works</a>
+        <a href="#perks">Perks</a>
+        <a href="#family">Family</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#apply">Apply</a>
+      </nav>
+    </div>
+    <p class="copy">© 2018 FZ Agency · Home of the <span class="fam">📱 Shoppaholics 🛍 Family</span> · Go live. Have fun. Get paid.</p>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">›</button>
+</div>
+
+<script>
+  // nav solid on scroll
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('solid',window.scrollY>20)};
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  // mobile menu
+  var burger=document.getElementById('burger'), panel=document.getElementById('mpanel');
+  burger.addEventListener('click',function(){
+    var open=panel.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){panel.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+
+  // duplicate marquee for seamless loop
+  var mq=document.getElementById('mq'); if(mq){mq.innerHTML+=mq.innerHTML;}
+
+  // scroll reveal
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // form submit (AJAX to Formspree once connected; graceful fallback otherwise)
+  var form=document.getElementById('applyForm'), status=document.getElementById('formStatus');
+  form.addEventListener('submit',function(ev){
+    if(form.action.indexOf('YOUR_FORM_ID')>-1){
+      ev.preventDefault();
+      status.className='form-status err';
+      status.textContent='Form not connected yet — add your Formspree ID (see README). Meanwhile, reach us on WhatsApp.';
+      return;
+    }
+    ev.preventDefault();
+    status.className='form-status'; status.textContent='Sending…';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){form.reset();status.className='form-status ok';status.textContent='🎉 Application sent! We\'ll be in touch soon — welcome to the family.';}
+        else{return r.json().then(function(d){throw new Error((d.errors&&d.errors[0].message)||'error')});}
+      })
+      .catch(function(){status.className='form-status err';status.textContent='Something went wrong. Please try again or WhatsApp us at +1 (917) 512-3583.';});
+  });
+
+  // lightbox — click any photo to see it full
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg');
+  var shots=Array.prototype.slice.call(document.querySelectorAll('.proof-card img, .gal figure img, .appshots img'));
+  var idx=0;
+  function show(i){idx=(i+shots.length)%shots.length;var im=shots[idx];lbImg.src=im.getAttribute('data-full')||im.src;lbImg.alt=im.alt||'';}
+  function openLb(i){show(i);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+  shots.forEach(function(im,i){im.style.cursor='zoom-in';im.addEventListener('click',function(){openLb(i);});});
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();show(idx+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLb();
+    else if(e.key==='ArrowLeft')show(idx-1);
+    else if(e.key==='ArrowRight')show(idx+1);
+  });
+</script>
+</body>
+</html>
