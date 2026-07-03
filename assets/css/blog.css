@@ -1,0 +1,98 @@
+/* ===== FZ Agency — In The Know (blog) styles ===== */
+:root{
+  --ink:#0a0413; --ink-2:#120720; --surface:#180a29; --surface-2:#20103a;
+  --red:#ff2d55; --magenta:#ff3fb4; --cyan:#22e0e6; --purple:#8a3ffc; --gold:#f5c451;
+  --text:#f5eefc; --read:#e7ddf4; --muted:#b9a6d6; --faint:#7c6ba0;
+  --line:rgba(255,255,255,.10);
+  --display:'Unbounded',system-ui,sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',monospace;
+  --grad:linear-gradient(100deg,var(--red),var(--magenta) 45%,var(--purple) 80%,var(--cyan));
+  --wrap:1120px; --read-wrap:720px; --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.1;letter-spacing:-.01em;margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--cyan)}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:40;background:rgba(10,4,19,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.site-head .inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand svg{height:32px;width:auto;display:block}
+.head-actions{display:flex;align-items:center;gap:22px}
+.head-actions a.link{font-size:15px;color:var(--muted)}
+.head-actions a.link:hover{color:var(--text);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:700;font-size:15px;padding:11px 22px;border-radius:100px;border:0;cursor:pointer;color:#fff;background:var(--grad);box-shadow:0 8px 26px rgba(255,45,85,.32);transition:transform .18s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+
+/* hub hero */
+.hub-hero{padding:70px 0 40px;position:relative;overflow:hidden}
+.hub-hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(60% 60% at 80% 0%,rgba(138,63,252,.35),transparent 60%),radial-gradient(50% 50% at 0% 100%,rgba(34,224,230,.20),transparent 60%)}
+.hub-hero .wrap{position:relative;z-index:1}
+.hub-hero h1{font-size:clamp(38px,6vw,66px);margin:14px 0 0}
+.hub-hero p{color:var(--muted);font-size:19px;max-width:60ch;margin:20px 0 0}
+
+/* article cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:24px 0 90px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-5px);border-color:var(--magenta);text-decoration:none}
+.card .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--purple),var(--red));position:relative;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card .thumb.noimg{display:grid;place-items:center}
+.card .thumb.noimg span{font-family:var(--display);font-weight:900;font-size:40px;color:rgba(255,255,255,.85)}
+.card .body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
+.card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.card h2{font-size:21px;margin:12px 0 10px;color:var(--text)}
+.card p{color:var(--muted);font-size:15px;margin:0 0 16px;flex:1}
+.card .read{font-family:var(--mono);font-size:13px;color:var(--gold);margin-top:auto}
+
+/* article page */
+.article-wrap{max-width:var(--read-wrap);margin:0 auto;padding:56px 24px 40px}
+.crumb{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
+.crumb a{color:var(--muted)}
+.article-head h1{font-size:clamp(30px,5vw,48px)}
+.article-meta{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:18px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.article-meta .dot{color:var(--red)}
+.article-hero{margin:30px 0 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+
+/* article body typography (paste AutoSEO content inside .article-body) */
+.article-body{font-size:18.5px;line-height:1.78;color:var(--read);margin-top:34px}
+.article-body > *:first-child{margin-top:0}
+.article-body p{margin:0 0 22px}
+.article-body h2{font-family:var(--display);font-size:28px;margin:44px 0 16px;color:var(--text)}
+.article-body h3{font-family:var(--display);font-size:22px;margin:34px 0 12px;color:var(--text)}
+.article-body a{color:var(--cyan);text-decoration:underline}
+.article-body ul,.article-body ol{margin:0 0 22px;padding-left:24px}
+.article-body li{margin-bottom:10px}
+.article-body img{border-radius:12px;margin:26px 0;border:1px solid var(--line)}
+.article-body blockquote{margin:26px 0;padding:14px 22px;border-left:3px solid var(--magenta);background:var(--surface);border-radius:0 12px 12px 0;color:var(--text)}
+.article-body strong{color:var(--text)}
+.article-body hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+
+/* CTA box */
+.cta-box{max-width:var(--read-wrap);margin:20px auto 0;padding:0 24px}
+.cta-inner{background:linear-gradient(120deg,rgba(255,45,85,.14),rgba(138,63,252,.14));border:1px solid var(--line);border-radius:20px;padding:34px;text-align:center}
+.cta-inner h3{font-size:26px}
+.cta-inner p{color:var(--muted);margin:12px 0 22px}
+
+/* footer */
+.site-foot{border-top:1px solid var(--line);margin-top:80px;padding:40px 0;background:var(--ink-2)}
+.site-foot .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.site-foot .links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px}
+.site-foot .links a{color:var(--muted)}
+.site-foot .copy{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:22px}
+.site-foot .copy .fam{color:var(--gold)}
+
+@media(max-width:860px){
+  .cards{grid-template-columns:1fr 1fr}
+  .head-actions a.link{display:none}
+}
+@media(max-width:560px){
+  .cards{grid-template-columns:1fr}
+  body{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}}
